@@ -323,17 +323,25 @@ nav{
 .why-d{font-size:0.82rem;color:var(--muted);line-height:1.9;}
 
 /* REVIEWS */
-.reviews-section{background:var(--cream);padding:7rem 4rem;}
-.reviews-section>.s-label,.reviews-section>.s-h2{text-align:center;}
+.reviews-section{background:var(--cream);padding:7rem 0;}
+.reviews-section>.s-label,.reviews-section>.s-h2{text-align:center;padding:0 4rem;}
 .reviews-section>.s-label{justify-content:center;}
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.rv-scroll-wrap{overflow:hidden;margin-top:3.5rem;}
+.rv-track{
+  display:flex;gap:1.2rem;
+  animation:rv-scroll 40s linear infinite;
+  width:max-content;
+}
+.rv-track:hover{animation-play-state:paused;}
+@keyframes rv-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 .rv-card{
   background:var(--white);border-radius:16px;
   border:1px solid var(--border);
-  padding:2rem;display:flex;flex-direction:column;gap:1rem;
+  padding:1.8rem;display:flex;flex-direction:column;gap:1rem;
+  width:320px;flex-shrink:0;
 }
 .rv-stars{color:var(--red);font-size:12px;letter-spacing:3px;}
-.rv-text{font-family:var(--display);font-style:italic;font-size:1rem;font-weight:300;color:var(--dark);line-height:1.75;}
+.rv-text{font-family:var(--display);font-style:italic;font-size:0.95rem;font-weight:300;color:var(--dark);line-height:1.75;}
 .rv-author{display:flex;align-items:center;gap:0.8rem;margin-top:auto;padding-top:1rem;border-top:1px solid var(--border);}
 .rv-avatar{
   width:34px;height:34px;border-radius:50%;
@@ -343,6 +351,15 @@ nav{
 }
 .rv-name{font-size:0.82rem;font-weight:500;color:var(--dark);}
 .rv-event{font-size:0.72rem;color:var(--muted);}
+.rv-all-link{
+  text-align:center;margin-top:2.5rem;padding:0 4rem;
+}
+.rv-all-link a{
+  font-size:0.8rem;color:var(--muted);text-decoration:none;
+  border-bottom:1px solid var(--border-med);padding-bottom:1px;
+  letter-spacing:0.04em;transition:color 0.2s,border-color 0.2s;
+}
+.rv-all-link a:hover{color:var(--dark);border-color:var(--dark);}
 
 /* BOOKING */
 .booking-section{
@@ -428,7 +445,7 @@ footer{background:var(--dark);padding:4rem 4rem 2.5rem;}
   .hero-left{padding:4rem 1.5rem;}
   .section{padding:5rem 1.5rem;}
   .space-grid,.booking-section{grid-template-columns:1fr;gap:3rem;}
-  .events-grid,.why-grid,.reviews-grid{grid-template-columns:1fr;}
+  .events-grid,.why-grid{grid-template-columns:1fr;}
   .footer-top{grid-template-columns:1fr;gap:2.5rem;}
   .banner{flex-direction:column;padding:3.5rem 1.5rem;gap:2rem;}
   .reviews-section{padding:5rem 1.5rem;}
@@ -628,32 +645,115 @@ footer{background:var(--dark);padding:4rem 4rem 2.5rem;}
 <!-- REVIEWS -->
 <section class="reviews-section">
   <div class="s-label">Kind Words</div>
-  <h2 class="s-h2">People <em>love</em> it here.</h2>
-  <div class="reviews-grid">
-    <div class="rv-card">
-      <div class="rv-stars">★★★★★</div>
-      <div class="rv-text">"The space was absolutely perfect for our baby shower. So much room, beautiful light, and the kitchen made catering so easy."</div>
-      <div class="rv-author">
-        <div class="rv-avatar">TM</div>
-        <div><div class="rv-name">Tamika M.</div><div class="rv-event">Baby Shower · 2025</div></div>
+  <h2 class="s-h2">97 Google reviews. <em>All five stars.</em></h2>
+  <div class="rv-scroll-wrap">
+    <div class="rv-track">
+      <!-- Set 1 -->
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"We had so much fun at a pop up Mary Jane and Paint event! We would definitely do it again. So worth it."</div>
+        <div class="rv-author"><div class="rv-avatar">KW</div><div><div class="rv-name">Kayla Warburton</div><div class="rv-event">Pop-Up Event · Local Guide</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"Held a University of Toronto, Scarborough event in this beautiful, versatile event place and it was absolutely perfect. Omar spent so much time with me before the event to ensure the place was set up perfectly."</div>
+        <div class="rv-author"><div class="rv-avatar">JG</div><div><div class="rv-name">Julia Gruson-Wood</div><div class="rv-event">University Event</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"Favourite event space in the GTA. So unique and versatile. The owner of venue is so kind, resourceful, and is dedicated to making sure your event runs smoothly."</div>
+        <div class="rv-author"><div class="rv-avatar">NM</div><div><div class="rv-name">Nafisa Mohamed</div><div class="rv-event">Event Space</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"Hosted my baby shower at Half Notes and the team here went above and beyond to make my event the perfect memory! The owner was amazing and so easy to work with."</div>
+        <div class="rv-author"><div class="rv-avatar">KJ</div><div><div class="rv-name">Kamilah Jade</div><div class="rv-event">Baby Shower</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"I recently booked Half Note 416 for my son's birthday, and I couldn't be happier. The space is even larger than it appears online. From start to finish, the customer service was exceptional."</div>
+        <div class="rv-author"><div class="rv-avatar">AM</div><div><div class="rv-name">Akrem Mohammed</div><div class="rv-event">Birthday Party</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"I've attended multiple events at Half Note 416 — networking sessions, birthday parties, an engagement celebration, and a comedy show — and every single experience has been outstanding."</div>
+        <div class="rv-author"><div class="rv-avatar">WJ</div><div><div class="rv-name">Wassim Jami</div><div class="rv-event">Multiple Events · Local Guide</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"We hosted a poetry + talent showcase night at the HalfNote 416. The atmosphere was perfect for our event. Omar the owner was great to work with."</div>
+        <div class="rv-author"><div class="rv-avatar">KB</div><div><div class="rv-name">Kheneil Black</div><div class="rv-event">Poetry Showcase · Local Guide</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"I recently took my wife on a date to Half Note to watch a comedy show, and we both had an incredible time! From the moment we walked in, the atmosphere was warm and inviting."</div>
+        <div class="rv-author"><div class="rv-avatar">WP</div><div><div class="rv-name">Wealth for Purpose</div><div class="rv-event">Comedy Night</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"Excellent venue! This speak easy style space is perfect for any kind of event — the space is so workable and can be transformed to fit any occasion! I hosted a 30th birthday games night and it had all the amenities I needed."</div>
+        <div class="rv-author"><div class="rv-avatar">MG</div><div><div class="rv-name">Marquel Ganesh</div><div class="rv-event">30th Birthday · Games Night</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"10/10. The space is amazing for any type of outing. The customer service is top notch. We had a book club there and this is definitely my best venue so far in Scarborough."</div>
+        <div class="rv-author"><div class="rv-avatar">WE</div><div><div class="rv-name">Wonegou Eunice</div><div class="rv-event">Book Club</div></div></div>
+      </div>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"We had so much fun at a pop up Mary Jane and Paint event! We would definitely do it again. So worth it."</div>
+        <div class="rv-author"><div class="rv-avatar">KW</div><div><div class="rv-name">Kayla Warburton</div><div class="rv-event">Pop-Up Event · Local Guide</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"Held a University of Toronto, Scarborough event in this beautiful, versatile event place and it was absolutely perfect. Omar spent so much time with me before the event to ensure the place was set up perfectly."</div>
+        <div class="rv-author"><div class="rv-avatar">JG</div><div><div class="rv-name">Julia Gruson-Wood</div><div class="rv-event">University Event</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"Favourite event space in the GTA. So unique and versatile. The owner of venue is so kind, resourceful, and is dedicated to making sure your event runs smoothly."</div>
+        <div class="rv-author"><div class="rv-avatar">NM</div><div><div class="rv-name">Nafisa Mohamed</div><div class="rv-event">Event Space</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"Hosted my baby shower at Half Notes and the team here went above and beyond to make my event the perfect memory! The owner was amazing and so easy to work with."</div>
+        <div class="rv-author"><div class="rv-avatar">KJ</div><div><div class="rv-name">Kamilah Jade</div><div class="rv-event">Baby Shower</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"I recently booked Half Note 416 for my son's birthday, and I couldn't be happier. The space is even larger than it appears online. From start to finish, the customer service was exceptional."</div>
+        <div class="rv-author"><div class="rv-avatar">AM</div><div><div class="rv-name">Akrem Mohammed</div><div class="rv-event">Birthday Party</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"I've attended multiple events at Half Note 416 — networking sessions, birthday parties, an engagement celebration, and a comedy show — and every single experience has been outstanding."</div>
+        <div class="rv-author"><div class="rv-avatar">WJ</div><div><div class="rv-name">Wassim Jami</div><div class="rv-event">Multiple Events · Local Guide</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"We hosted a poetry + talent showcase night at the HalfNote 416. The atmosphere was perfect for our event. Omar the owner was great to work with."</div>
+        <div class="rv-author"><div class="rv-avatar">KB</div><div><div class="rv-name">Kheneil Black</div><div class="rv-event">Poetry Showcase · Local Guide</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"I recently took my wife on a date to Half Note to watch a comedy show, and we both had an incredible time! From the moment we walked in, the atmosphere was warm and inviting."</div>
+        <div class="rv-author"><div class="rv-avatar">WP</div><div><div class="rv-name">Wealth for Purpose</div><div class="rv-event">Comedy Night</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"Excellent venue! This speak easy style space is perfect for any kind of event — the space is so workable and can be transformed to fit any occasion! I hosted a 30th birthday games night and it had all the amenities I needed."</div>
+        <div class="rv-author"><div class="rv-avatar">MG</div><div><div class="rv-name">Marquel Ganesh</div><div class="rv-event">30th Birthday · Games Night</div></div></div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"10/10. The space is amazing for any type of outing. The customer service is top notch. We had a book club there and this is definitely my best venue so far in Scarborough."</div>
+        <div class="rv-author"><div class="rv-avatar">WE</div><div><div class="rv-name">Wonegou Eunice</div><div class="rv-event">Book Club</div></div></div>
       </div>
     </div>
-    <div class="rv-card">
-      <div class="rv-stars">★★★★★</div>
-      <div class="rv-text">"We shot a full music video here and the space gave us exactly the vibe we needed. Easy load-in, clean aesthetic, would book again."</div>
-      <div class="rv-author">
-        <div class="rv-avatar">DJ</div>
-        <div><div class="rv-name">Darius J.</div><div class="rv-event">Music Video Shoot · 2025</div></div>
-      </div>
-    </div>
-    <div class="rv-card">
-      <div class="rv-stars">★★★★★</div>
-      <div class="rv-text">"Our team workshop went so well here. Everyone felt comfortable and the space was flexible enough for breakouts and full group sessions."</div>
-      <div class="rv-author">
-        <div class="rv-avatar">AP</div>
-        <div><div class="rv-name">Anika P.</div><div class="rv-event">Corporate Workshop · 2025</div></div>
-      </div>
-    </div>
+  </div>
+  <div class="rv-all-link">
+    <a href="https://maps.google.com/maps?cid=0x89d4cf13ff8afb4f:0x95426595c14072a7" target="_blank" rel="noopener">See all 97 Google reviews →</a>
   </div>
 </section>
 
